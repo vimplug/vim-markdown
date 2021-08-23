@@ -925,10 +925,10 @@ hi def link markdownH6                      Title
 hi def link markdownEmoticonKeyword         Statement
 hi def link markdownRule                    Identifier
 
-hi def link markdownXmlComment              NonText
-hi def link markdownXmlElement              NonText
-hi def link markdownXmlEmptyElement         NonText
-hi def link markdownXmlEntities             Special
+" hi def link markdownXmlComment              NonText
+" hi def link markdownXmlElement              NonText
+" hi def link markdownXmlEmptyElement         NonText
+" hi def link markdownXmlEntities             Special
 
 " }}}
 
