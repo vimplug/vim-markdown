@@ -76,11 +76,6 @@ if g:markdown_enable_input_abbreviations
   iabbrev <buffer> :-) :smile:
   iabbrev <buffer> :-D :laughing:
   iabbrev <buffer> :-( :disappointed:
-
-  " Replace common punctuation
-  iabbrev <buffer> ... …
-  iabbrev <buffer> << «
-  iabbrev <buffer> >> »
 endif
 
 " Folding
