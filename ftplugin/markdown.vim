@@ -53,8 +53,6 @@ endif
 
 " {{{ OPTIONS
 
-setlocal textwidth=0
-setlocal ts=2 sw=2 expandtab smarttab
 setlocal comments=b:*,b:-,b:+,n:>,se:``` commentstring=>\ %s
 setlocal formatoptions=tron
 setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*[+-\\*]\\s\\+
