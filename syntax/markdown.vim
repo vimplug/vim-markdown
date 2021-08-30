@@ -132,7 +132,7 @@ let b:markdown_syntax_url =
   \ .   '[-A-Z0-9+&@#/%=~_|$]\+'
   \ . '\)'
   \ . '>\?'
-execute 'syn match markdownUrlLinkInText /' . b:markdown_syntax_url . '/ contains=@NoSpell display'
+" execute 'syn match markdownUrlLinkInText /' . b:markdown_syntax_url . '/ contains=@NoSpell display'
 
 syn match markdownPullRequestLinkInText /\%(\w\)\@<!#\d\+/ display
 syn match markdownUserLinkInText /\%(\w\)\@<!@[[:alnum:]._\/-]\+/ contains=@NoSpell display
@@ -931,11 +931,6 @@ hi def link markdownRule                    Identifier
 " hi def link markdownXmlEntities             Special
 
 " }}}
-
-
-if !exists('g:markdown_include_jekyll_support') || g:markdown_include_jekyll_support
-  execute 'runtime! syntax/markdown_jekyll.vim'
-endif
 
 let b:current_syntax = "markdown"
 if main_syntax ==# 'markdown'
