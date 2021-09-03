@@ -518,16 +518,10 @@ hi def link markdownFencedCodeBlockInItemDelimiter Special
 
 " }}}
 
-
-" {{{ EMOTICONS
-
-syn match markdownSectionNumber '\d\.\d'
-syn match markdownSectionNumber '\d\.\d\.\d'
-syn match markdownSectionNumber '\d\.\d\.\d\.\d'
-syn keyword markdownMathHeader Remark Definition Theorem Lemma nextgroup=markdownSectionNumber
-
-" }}}
-
+syn match markdownSectionNumber '\d\+\.\d\+'
+syn match markdownSectionNumber '\d\+\.\d\+\.\d\+'
+syn match markdownSectionNumber '\d\+\.\d\+\.\d\+\.\d\+'
+syn keyword markdownMathHeader Example Remark Definition Theorem Lemma nextgroup=markdownSectionNumber
 
 " {{{ HIGHLIGHT DEFINITION
 
