@@ -521,7 +521,13 @@ hi def link markdownFencedCodeBlockInItemDelimiter Special
 syn match markdownSectionNumber '\d\+\.\d\+'
 syn match markdownSectionNumber '\d\+\.\d\+\.\d\+'
 syn match markdownSectionNumber '\d\+\.\d\+\.\d\+\.\d\+'
-syn keyword markdownMathHeader Example Remark Definition Theorem Lemma nextgroup=markdownSectionNumber
+syn match markdownMathHeader '^Algorithm'
+syn match markdownMathHeader '^Exmaple'
+syn match markdownMathHeader '^Remark'
+syn match markdownMathHeader '^Definition'
+syn match markdownMathHeader '^Theorem'
+syn match markdownMathHeader '^Lemma'
+syn match markdownMathHeader '^Discussion'
 
 " {{{ HIGHLIGHT DEFINITION
 
