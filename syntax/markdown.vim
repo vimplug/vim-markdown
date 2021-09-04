@@ -33,45 +33,46 @@ syn case ignore
 " {{{ INLINE ELEMENTS
 
 syn cluster markdownInline contains=
-  \ markdownItalic,markdownBold,markdownBoldItalic,markdownStrike,markdownInlineCode,
+  \ markdownStrike,markdownInlineCode,
   \ markdownPullRequestLinkInText,markdownUrlLinkInText,markdownUserLinkInText,
   \ markdownEmailLinkInText,markdownLinkContainer,markdownXmlComment,
   \ markdownXmlElement,markdownXmlEmptyElement,markdownXmlEntities
+" \ markdownItalic,markdownBold,markdownBoldItalic,
 
-execute 'syn region markdownItalic matchgroup=markdownInlineDelimiter '
-  \ . 'start="\%(\s\|_\|^\)\@<=\*\%(\s\|\*\|$\)\@!" end="\%(\s\|\*\)\@<!\*" '
-  \ . 'contains=@markdownInline '
-  \ . b:markdown_concealends
-execute 'syn region markdownItalic matchgroup=markdownInlineDelimiter '
-  \ . 'start="\%(\s\|\*\|^\)\@<=_\%(\s\|_\|$\)\@!" end="\%(\s\|_\)\@<!_" '
-  \ . 'contains=@markdownInline '
-  \ . b:markdown_concealends
-
-execute 'syn region markdownBold matchgroup=markdownInlineDelimiter '
-  \ . 'start="\%(\s\|__\|^\)\@<=\*\*\%(\s\|\*\|$\)\@!" end="\%(\s\|\*\*\)\@<!\*\*" '
-  \ . 'contains=@markdownInline '
-  \ . b:markdown_concealends
-execute 'syn region markdownBold matchgroup=markdownInlineDelimiter '
-  \ . 'start="\%(\s\|\*\*\|^\)\@<=__\%(\s\|_\|$\)\@!" end="\%(\s\|__\)\@<!__" '
-  \ . 'contains=@markdownInline '
-  \ . b:markdown_concealends
-
-execute 'syn region markdownBoldItalic matchgroup=markdownInlineDelimiter '
-  \ . 'start="\%(\s\|_\|^\)\@<=\*\*\*\%(\s\|\*\|$\)\@!" end="\%(\s\|\*\)\@<!\*\*\*" '
-  \ . 'contains=@markdownInline '
-  \ . b:markdown_concealends
-execute 'syn region markdownBoldItalic matchgroup=markdownInlineDelimiter '
-  \ . 'start="\%(\s\|\*\|^\)\@<=___\%(\s\|_\|$\)\@!" end="\%(\s\|_\)\@<!___" '
-  \ . 'contains=@markdownInline '
-  \ . b:markdown_concealends
-execute 'syn region markdownBoldItalic matchgroup=markdownInlineDelimiter '
-  \ . 'start="\%(\s\|_\|^\)\@<=\*\*_\%(\s\|_\|$\)\@!" end="\%(\s\|_\)\@<!_\*\*" '
-  \ . 'contains=@markdownInline '
-  \ . b:markdown_concealends
-execute 'syn region markdownBoldItalic matchgroup=markdownInlineDelimiter '
-  \ . 'start="\%(\s\|\*\|^\)\@<=__\*\%(\s\|\*\|$\)\@!" end="\%(\s\|\*\)\@<!\*__" '
-  \ . 'contains=@markdownInline '
-  \ . b:markdown_concealends
+" execute 'syn region markdownItalic matchgroup=markdownInlineDelimiter '
+"   \ . 'start="\%(\s\|_\|^\)\@<=\*\%(\s\|\*\|$\)\@!" end="\%(\s\|\*\)\@<!\*" '
+"   \ . 'contains=@markdownInline '
+"   \ . b:markdown_concealends
+" execute 'syn region markdownItalic matchgroup=markdownInlineDelimiter '
+"   \ . 'start="\%(\s\|\*\|^\)\@<=_\%(\s\|_\|$\)\@!" end="\%(\s\|_\)\@<!_" '
+"   \ . 'contains=@markdownInline '
+"   \ . b:markdown_concealends
+" 
+" execute 'syn region markdownBold matchgroup=markdownInlineDelimiter '
+"   \ . 'start="\%(\s\|__\|^\)\@<=\*\*\%(\s\|\*\|$\)\@!" end="\%(\s\|\*\*\)\@<!\*\*" '
+"   \ . 'contains=@markdownInline '
+"   \ . b:markdown_concealends
+" execute 'syn region markdownBold matchgroup=markdownInlineDelimiter '
+"   \ . 'start="\%(\s\|\*\*\|^\)\@<=__\%(\s\|_\|$\)\@!" end="\%(\s\|__\)\@<!__" '
+"   \ . 'contains=@markdownInline '
+"   \ . b:markdown_concealends
+" 
+" execute 'syn region markdownBoldItalic matchgroup=markdownInlineDelimiter '
+"   \ . 'start="\%(\s\|_\|^\)\@<=\*\*\*\%(\s\|\*\|$\)\@!" end="\%(\s\|\*\)\@<!\*\*\*" '
+"   \ . 'contains=@markdownInline '
+"   \ . b:markdown_concealends
+" execute 'syn region markdownBoldItalic matchgroup=markdownInlineDelimiter '
+"   \ . 'start="\%(\s\|\*\|^\)\@<=___\%(\s\|_\|$\)\@!" end="\%(\s\|_\)\@<!___" '
+"   \ . 'contains=@markdownInline '
+"   \ . b:markdown_concealends
+" execute 'syn region markdownBoldItalic matchgroup=markdownInlineDelimiter '
+"   \ . 'start="\%(\s\|_\|^\)\@<=\*\*_\%(\s\|_\|$\)\@!" end="\%(\s\|_\)\@<!_\*\*" '
+"   \ . 'contains=@markdownInline '
+"   \ . b:markdown_concealends
+" execute 'syn region markdownBoldItalic matchgroup=markdownInlineDelimiter '
+"   \ . 'start="\%(\s\|\*\|^\)\@<=__\*\%(\s\|\*\|$\)\@!" end="\%(\s\|\*\)\@<!\*__" '
+"   \ . 'contains=@markdownInline '
+"   \ . b:markdown_concealends
 
 syn match markdownStrike /\%(\\\)\@<!\~\~\%(\S\)\@=\_.\{-}\%(\S\)\@<=\~\~/ contains=markdownStrikeDelimiter,@markdownInline
 syn match markdownStrikeDelimiter /\~\~/ contained
@@ -535,9 +536,9 @@ hi def Italic                       term=italic cterm=italic gui=italic
 hi def Bold                         term=bold cterm=bold gui=bold
 hi def BoldItalic                   term=bold,italic cterm=bold,italic gui=bold,italic
 
-hi def link markdownItalic                  Italic
-hi def link markdownBold                    Bold
-hi def link markdownBoldItalic              BoldItalic
+" hi def link markdownItalic                  Italic
+" hi def link markdownBold                    Bold
+" hi def link markdownBoldItalic              BoldItalic
 
 hi def link markdownPullRequestLinkInText   Underlined
 hi def link markdownUserLinkInText          Underlined
