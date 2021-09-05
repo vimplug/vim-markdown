@@ -326,7 +326,7 @@ syn match markdownBlockquoteDelimiter /^\s*\%(>\s\?\)\+/ contained
 syn region markdownFencedCodeBlock matchgroup=markdownCodeDelimiter start=/^\s\{,3}```\%(`*\).*$/ end=/^\s\{,3}```\%(`*\)\s*$/ contains=@NoSpell
 syn region markdownFencedCodeBlock matchgroup=markdownCodeDelimiter start=/^\s\{,3}\~\~\~\%(\~*\).*$/ end=/^\s\{,3}\~\~\~\%(\~*\)\s*$/ contains=@NoSpell
 
-syn match markdownCodeBlock /\%(^\n\)\@<=\%(\%( \{4}\|\t\+\).*\n\)\+$/ contains=@NoSpell
+" syn match markdownCodeBlock /\%(^\n\)\@<=\%(\%( \{4}\|\t\+\).*\n\)\+$/ contains=@NoSpell
 
 let s:markdown_table_header_rows_separator = ''
   \ . '\%('
@@ -522,13 +522,14 @@ hi def link markdownFencedCodeBlockInItemDelimiter Special
 syn match markdownSectionNumber '\d\+\.\d\+'
 syn match markdownSectionNumber '\d\+\.\d\+\.\d\+'
 syn match markdownSectionNumber '\d\+\.\d\+\.\d\+\.\d\+'
-syn match markdownMathHeader '^Algorithm'
-syn match markdownMathHeader '^Exmaple'
-syn match markdownMathHeader '^Remark'
-syn match markdownMathHeader '^Definition'
-syn match markdownMathHeader '^Theorem'
-syn match markdownMathHeader '^Lemma'
-syn match markdownMathHeader '^Discussion'
+syn match markdownMathHeader '^Algorithm\W'
+syn match markdownMathHeader '^Example\W'
+syn match markdownMathHeader '^Remark\W'
+syn match markdownMathHeader '^Definition\W'
+syn match markdownMathHeader '^Theorem\W'
+syn match markdownMathHeader '^Lemma\W'
+syn match markdownMathHeader '^Discussion\W'
+syn match markdownMathHeader '^Proof\W'
 
 " {{{ HIGHLIGHT DEFINITION
 
