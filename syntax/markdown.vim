@@ -27,7 +27,6 @@ endif
 
 syn spell toplevel
 syn sync fromstart
-syn case ignore
 
 
 " {{{ INLINE ELEMENTS
@@ -522,14 +521,14 @@ hi def link markdownFencedCodeBlockInItemDelimiter Special
 syn match markdownSectionNumber '\d\+\.\d\+'
 syn match markdownSectionNumber '\d\+\.\d\+\.\d\+'
 syn match markdownSectionNumber '\d\+\.\d\+\.\d\+\.\d\+'
-syn match markdownMathHeader '^Algorithm\W'
-syn match markdownMathHeader '^Example\W'
-syn match markdownMathHeader '^Remark\W'
-syn match markdownMathHeader '^Definition\W'
-syn match markdownMathHeader '^Theorem\W'
-syn match markdownMathHeader '^Lemma\W'
-syn match markdownMathHeader '^Discussion\W'
-syn match markdownMathHeader '^Proof\W'
+syn match markdownMathHeader '^Algorithm\s' nextgroup=markdownSectionNumber
+syn match markdownMathHeader '^Example\s' nextgroup=markdownSectionNumber
+syn match markdownMathHeader '^Remark\s' nextgroup=markdownSectionNumber
+syn match markdownMathHeader '^Definition\s' nextgroup=markdownSectionNumber
+syn match markdownMathHeader '^Theorem\s' nextgroup=markdownSectionNumber
+syn match markdownMathHeader '^Lemma\s' nextgroup=markdownSectionNumber
+syn match markdownMathHeader "^Discussion\s" nextgroup=markdownSectionNumber
+syn match markdownMathHeader '^Proof\s' nextgroup=markdownSectionNumber
 
 " {{{ HIGHLIGHT DEFINITION
 
