@@ -518,6 +518,7 @@ hi def link markdownFencedCodeBlockInItemDelimiter Special
 
 " }}}
 
+
 syn match markdownSectionNumber '\d\+\.\d\+'
 syn match markdownSectionNumber '\d\+\.\d\+\.\d\+'
 syn match markdownSectionNumber '\d\+\.\d\+\.\d\+\.\d\+'
@@ -525,10 +526,41 @@ syn match markdownMathHeader '^Algorithm\s' nextgroup=markdownSectionNumber
 syn match markdownMathHeader '^Example\s' nextgroup=markdownSectionNumber
 syn match markdownMathHeader '^Remark\s' nextgroup=markdownSectionNumber
 syn match markdownMathHeader '^Definition\s' nextgroup=markdownSectionNumber
+syn match markdownMathHeader '^Notation\s' nextgroup=markdownSectionNumber
 syn match markdownMathHeader '^Theorem\s' nextgroup=markdownSectionNumber
 syn match markdownMathHeader '^Lemma\s' nextgroup=markdownSectionNumber
 syn match markdownMathHeader "^Discussion\s" nextgroup=markdownSectionNumber
 syn match markdownMathHeader '^Proof\s' nextgroup=markdownSectionNumber
+syn match markdownMathHeader '^Proposition\s' nextgroup=markdownSectionNumber
+
+" conceals (math)
+
+" setlocal conceallevel=2
+" syn match markdownMathSymbol 'meme' conceal cchar=
+" syn match markdownMathSymbol '-meme' conceal cchar=
+" syn match markdownMathSymbol '-in' conceal cchar=∈
+" syn match markdownMathSymbol '-nin' conceal cchar=∉
+" syn match markdownMathSymbol '-subset' conceal cchar=⊆
+" syn match markdownMathSymbol '-psubset' conceal cchar=⊂
+" syn match markdownMathSymbol '-empty' conceal cchar=∅
+" syn match markdownMathSymbol '-and' conceal cchar=∧
+" syn match markdownMathSymbol '-or' conceal cchar=∨
+" 
+" syn match markdownMathSymbol '-cup' conceal cchar=∪
+" syn match markdownMathSymbol '-cap' conceal cchar=∩
+" syn match markdownMathSymbol '-exists' conceal cchar=∃
+" syn match markdownMathSymbol '-forall' conceal cchar=∀
+" syn match markdownMathSymbol '-neq' conceal cchar=≠
+" syn match markdownMathSymbol '-neg' conceal cchar=¬
+" syn match markdownMathSymbol '-eq' conceal cchar=≡
+" syn match markdownMathSymbol '-dot' conceal cchar=∙
+" syn match markdownMathSymbol '-int' conceal cchar=∫
+" syn match markdownMathSymbol '-inf' conceal cchar=∞
+" 
+" syn match markdownMathSymbol '-sqrt' conceal cchar=√
+" syn match markdownMathSymbol '-or' conceal cchar=±
+" syn match markdownMathSymbol '-or' conceal cchar=∓
+" syn match markdownMathSymbol '-\*' conceal cchar=×
 
 " {{{ HIGHLIGHT DEFINITION
 
