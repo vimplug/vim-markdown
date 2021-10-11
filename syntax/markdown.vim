@@ -519,19 +519,45 @@ hi def link markdownFencedCodeBlockInItemDelimiter Special
 " }}}
 
 
-syn match markdownSectionNumber '\d\+\.\d\+'
-syn match markdownSectionNumber '\d\+\.\d\+\.\d\+'
-syn match markdownSectionNumber '\d\+\.\d\+\.\d\+\.\d\+'
-syn match markdownMathHeader '^Algorithm\s' nextgroup=markdownSectionNumber
-syn match markdownMathHeader '^Example\s' nextgroup=markdownSectionNumber
-syn match markdownMathHeader '^Remark\s' nextgroup=markdownSectionNumber
-syn match markdownMathHeader '^Definition\s' nextgroup=markdownSectionNumber
-syn match markdownMathHeader '^Notation\s' nextgroup=markdownSectionNumber
-syn match markdownMathHeader '^Theorem\s' nextgroup=markdownSectionNumber
-syn match markdownMathHeader '^Lemma\s' nextgroup=markdownSectionNumber
-syn match markdownMathHeader "^Discussion\s" nextgroup=markdownSectionNumber
-syn match markdownMathHeader '^Proof\s' nextgroup=markdownSectionNumber
-syn match markdownMathHeader '^Proposition\s' nextgroup=markdownSectionNumber
+"syn match markdownSectionNumber '(?<!a)b'
+" syn match markdownSectionNumber '\(?<!a\)b'
+" syn match markdownSectionNumber '(atom)and<='
+" syn match markdownSectionNumber '\(Algorithm \|Example \|Example \|Example \|Example \|Example \|Example \|Example \|\)\@<=\d\+\.\d\+'
+"
+let g:mathHeaderList = [
+      \ 'Algorithm',
+      \ 'Example',
+      \ 'Remark',
+      \ 'Definition',
+      \ 'Notation',
+      \ 'Theorem',
+      \ 'Lemma',
+      \ 'Discussion',
+      \ 'Proof',
+      \ 'Proposition'
+      \ ]
+
+for i in g:mathHeaderList
+  let n = "^".i."\\s"
+  execute "syn match markdownMathHeader '".n."' nextgroup=markdownSectionNumber"
+  for i in [2,3,4]
+    let m = '\('.join(g:mathHeaderList, ' \|').' \)\@<='.repeat('\d\+\.', i)[:-3]
+    execute "syn match markdownSectionNumber '".m."'"
+  endfor
+endfor
+
+let g:mathKeywordList = [
+      \ 'preimage',
+      \ 'injective',
+      \ 'bijective',
+      \ 'associative',
+      \ 'commutative',
+      \ 'distributive'
+      \ ]
+
+for i in g:mathKeywordList
+  execute "syn match markdownMathKeyword '".i."'"
+endfor
 
 " conceals (math)
 
