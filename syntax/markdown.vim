@@ -525,23 +525,22 @@ hi def link markdownFencedCodeBlockInItemDelimiter Special
 " syn match markdownSectionNumber '\(Algorithm \|Example \|Example \|Example \|Example \|Example \|Example \|Example \|\)\@<=\d\+\.\d\+'
 "
 let g:mathHeaderList = [
-      \ '^Algorithm',
-      \ '^Example',
-      \ '^Remark',
-      \ '^Definition',
-      \ '^Notation',
-      \ '^Theorem',
-      \ '^Lemma',
-      \ '^Discussion',
-      \ '^Proof',
-      \ '^Proposition'
+      \ 'Algorithm',
+      \ 'Example',
+      \ 'Remark',
+      \ 'Definition',
+      \ 'Notation',
+      \ 'Theorem',
+      \ 'Lemma',
+      \ 'Discussion',
+      \ 'Proof',
+      \ 'Proposition'
       \ ]
 
 for i in g:mathHeaderList
-  let n = i."\\s"
-  execute "syn match markdownMathHeader '".n."' nextgroup=markdownSectionNumber"
-  for i in [2,3,4]
-    let m = '\('.join(g:mathHeaderList, ' \|').' \)\@<='.repeat('\d\+\.', i)[:-3]
+  execute "syn match markdownMathHeader '^".i."\\s' nextgroup=markdownSectionNumber"
+  for j in [2,3,4]
+    let m = '\(^'.join(g:mathHeaderList, ' \|^').' \)\@<='.repeat('\d\+\.', j)[:-3]
     execute "syn match markdownSectionNumber '".m."'"
   endfor
 endfor
