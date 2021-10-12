@@ -523,19 +523,21 @@ hi def link markdownFencedCodeBlockInItemDelimiter Special
 " syn match markdownSectionNumber '\(?<!a\)b'
 " syn match markdownSectionNumber '(atom)and<='
 " syn match markdownSectionNumber '\(Algorithm \|Example \|Example \|Example \|Example \|Example \|Example \|Example \|\)\@<=\d\+\.\d\+'
-"
-let g:mathHeaderList = [
-      \ 'Algorithm',
-      \ 'Example',
-      \ 'Remark',
-      \ 'Definition',
-      \ 'Notation',
-      \ 'Theorem',
-      \ 'Lemma',
-      \ 'Discussion',
-      \ 'Proof',
-      \ 'Proposition'
-      \ ]
+
+if !exists("mathHeaderList")
+  let g:mathHeaderList = [
+        \ 'Algorithm',
+        \ 'Example',
+        \ 'Remark',
+        \ 'Definition',
+        \ 'Notation',
+        \ 'Theorem',
+        \ 'Lemma',
+        \ 'Discussion',
+        \ 'Proof',
+        \ 'Proposition'
+        \ ]
+endif
 
 for i in g:mathHeaderList
   execute "syn match markdownMathHeader '^".i."\\s' nextgroup=markdownSectionNumber"
@@ -545,15 +547,17 @@ for i in g:mathHeaderList
   endfor
 endfor
 
-let g:mathKeywordList = [
-      \ 'preimage',
-      \ 'injective',
-      \ 'bijective',
-      \ 'surjective',
-      \ 'associative',
-      \ 'commutative',
-      \ 'distributive'
-      \ ]
+if !exists("mathKeywordList")
+  let g:mathKeywordList = [
+        \ 'preimage',
+        \ 'injective',
+        \ 'bijective',
+        \ 'surjective',
+        \ 'associative',
+        \ 'commutative',
+        \ 'distributive'
+        \ ]
+endif
 
 for i in g:mathKeywordList
   execute "syn match markdownMathKeyword '".i."'"
