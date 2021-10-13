@@ -560,7 +560,8 @@ if !exists("mathKeywordList")
 endif
 
 for i in g:mathKeywordList
-  execute "syn match markdownMathKeyword '".i."'"
+  let m = '\(\W\|^\)\@<='.i.'\(\W\)\@='
+  execute "syn match markdownMathKeyword '".m."'"
 endfor
 
 " conceals (math)
