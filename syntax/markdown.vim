@@ -564,6 +564,17 @@ for i in g:mathKeywordList
   execute "syn match markdownMathKeyword '".m."'"
 endfor
 
+if !exists("mathSpecialList")
+  let g:mathSpecialList = [
+        \ 'enables',
+        \ ]
+endif
+
+for i in g:mathSpecialList
+  let m = '\(^\)\@<='.i.'\( {\)\@='
+  execute "syn match markdownMathSpecial '".m."'"
+endfor
+
 " conceals (math)
 
 " setlocal conceallevel=2
