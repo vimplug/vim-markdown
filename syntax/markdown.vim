@@ -540,7 +540,7 @@ if !exists("mathHeaderList")
 endif
 
 for i in g:mathHeaderList
-  execute "syn match markdownMathHeader '^".i."\\s' nextgroup=markdownSectionNumber"
+  execute "syn match markdownMathHeader '^\\n^".i."\\s' nextgroup=markdownSectionNumber"
   for j in [2,3,4]
     let m = '\(^'.join(g:mathHeaderList, ' \|^').' \)\@<='.repeat('\d\+\.', j)[:-3]
     execute "syn match markdownSectionNumber '".m."'"
