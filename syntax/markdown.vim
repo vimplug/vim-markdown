@@ -524,6 +524,9 @@ hi def link markdownFencedCodeBlockInItemDelimiter Special
 " syn match markdownSectionNumber '(atom)and<='
 " syn match markdownSectionNumber '\(Algorithm \|Example \|Example \|Example \|Example \|Example \|Example \|Example \|\)\@<=\d\+\.\d\+'
 
+if exists("g:useKhangsMath")
+if (g:useKhangsMath == 1)
+
 if !exists("mathHeaderList")
   let g:mathHeaderList = [
         \ 'Algorithm',
@@ -574,6 +577,9 @@ for i in g:mathSpecialList
   let m = '\(^\)\@<='.i.'\( {\)\@='
   execute "syn match markdownMathSpecial '".m."'"
 endfor
+
+endif
+endif
 
 " conceals (math)
 
